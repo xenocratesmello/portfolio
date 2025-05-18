@@ -1,9 +1,26 @@
 @charset "UTF-8";
-/*@import "reset.css"; /*Clean default format*/
 @import "clean.css"; /*Clean default format*/
+
+/* The colors are based on the color palette #0c5579
+** using the generator https://venngage.com/tools/accessible-color-palette-generator#colorGenerator
+** based on the WCAG 2.1 AA with a contrast ratio of 4.5:1.
+**
+** #b0cbdc, #000000
+** #89afc7, #000000
+** #1a7ca2, #ffffff
+** #13688d, #ffffff
+** #0c5579, #ffffff
+** #ffffff, #000000
+*/
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  text-align: justify;
+  width: 80%;
+  margin: 0 auto;
 }
 
 p {
@@ -12,17 +29,16 @@ p {
 }
 
 header {
-  background: #1a7ca2;
-  color: #fff;
-  padding: 20px 10px;
+  background: #0c5579;
+  color: white;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
 }
 
 header li {
-    float: left;
-    list-style: none;
+  float: left;
+  list-style: none;
 }
 
 header li a {
@@ -32,59 +48,105 @@ header li a {
 }
 
 header li a:hover {
-  background: #fff;
-  color: #1a7ca2;
+  background: white;
+  color: #0c5579;
   font-weight: bold;
 }
 
 h1 {
-  background: #30a5cd;
-  color: black;
+  background: #1a7ca2;
+  color: white;
   font-size: xx-large;
   font-weight: bold;
   padding: 20px 10px;
   text-align: center;
-  margin: 0 auto;
 }
 
 main {
-    margin: 0 auto;
-    display: block;
-    text-align: justify;
+  display: block;
 }
 
 main img {
-  max-width: 5%;
+  max-width: 10%;
   height: auto;
   float: left;
 }
 
+form {
+  display: grid;
+  width: 80%;
+  padding: 10px 20px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 5fr;
+  grid-auto-rows: auto;
+  gap: 10px;
+  background: white;
+  color: black;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+form label {
+  grid-column: 1;
+  justify-self: end;
+}
+
+form input {
+  grid-column: 2;
+  width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  justify-self: start;
+}
+
+form textarea {
+  grid-column: 2;
+  width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  height: 12em;
+  justify-self: start;
+}
+
+.buttons {
+  grid-column: 2;
+  width: 100%;
+  justify-self: start;
+}
+
+button {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  width: 6em;
+}
+
 article {
   margin: 0 auto;
+  clear: both;
+
 }
 
 article ul {
-  background: #fff;
+  background: white;
   color: black;
   font-size: 1.2em;
   line-height: 1.5em;
   list-style-type: circle;
   padding-left: 40px;
-  text-align: justify;
+
 }
 
 article footer {
-  background: #30a5cd;
-  color: black;
+  background: #1a7ca2;
+  color: white;
   font-size: 0.8em;
   line-height: 1em;
-  margin: 0 auto;
 }
 
 footer {
-  background: #1a7ca2;
-  color: #fff;
-  padding: 20px 10px;
+  background: #0c5579;
+  color: white;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
 }
