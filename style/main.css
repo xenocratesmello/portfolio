@@ -126,6 +126,10 @@ article {
   margin: 0 auto;
 }
 
+.blog {
+  margin 20px auto;
+}
+
 article ul {
   background: white;
   color: black;

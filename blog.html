@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style/main.css" media="all">
-    <script type="module" src="script/main.js"></script>
     <title>Xenócrates Amon Mello</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,8 +23,101 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <h1>Blog</h1>
+        <p>Use the form below to add a new blog article.</p>
+        <form class="create-article">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required></textarea>
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" placeholder="e.g., JavaScript, HTML, CSS">
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" name="image" placeholder="https://example.com/image.jpg">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <container class="buttons">
+                <button type="button" onclick="createArticle()">Submit</button>
+                <button type="reset" id="reset">Reset</button>
+                <button type="button" onclick="window.location.href='blog.html'">Cancel</button>
+            </container>
+        </form>
+    </main>
+    <section id="articles"></section>
     <footer>
         <p>&copy; 2025 Xenócrates Amon Mello</p>
     </footer>
 </body>
+
+<script>
+    function createArticle() {
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const content = document.getElementById('content').value;
+        const tags = document.getElementById('tags').value;
+        const image = document.getElementById('image').value;
+        
+        const articlesList = document.getElementById('articles');
+        const article = document.createElement('article');
+        article.classList.add('blog');
+        
+        const h3Title = document.createElement('h3');
+        const pDate = document.createElement('p');
+        const pContent = document.createElement('p');
+        const img = document.createElement('img');
+        const footerTags = document.createElement('footer');
+
+        if (title) {
+            h3Title.textContent = title;
+            article.appendChild(h3Title);
+
+        } else {
+            alert('Please enter a title for the article.');
+            return;
+        }
+        
+        if (date) {
+            pDate.textContent = date;
+            pDate.classList.add('duration');
+            article.appendChild(pDate);
+        } else {
+            alert('Please enter a date for the article.');
+        }
+
+        if (content) {
+            pContent.textContent = content;
+            article.appendChild(pContent);
+        } else {
+            alert('Please enter content for the article.');
+            return;
+        }
+
+        if (image) {
+            img.src = image;
+            img.alt = title;
+            article.appendChild(img);
+        } else {
+            alert('Please enter an image URL for the article.');
+            return;
+        }
+
+        if (tags) {
+            footerTags.textContent = 'Tags: ' + tags;
+            article.appendChild(footerTags);
+        } else {
+            alert('Please enter tags for the article.');
+            return;
+        }
+
+        articlesList.appendChild(article);
+
+        document.getElementById('title').value = ''; // Clear the input field
+        document.getElementById('date').value = ''; // Clear the input field
+        document.getElementById('content').value = ''; // Clear the input field
+        document.getElementById('tags').value = ''; // Clear the input field
+        document.getElementById('image').value = ''; // Clear the input field
+    }
+</script>
+
 </html>
